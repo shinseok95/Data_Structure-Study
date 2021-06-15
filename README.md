@@ -3,9 +3,34 @@
 
 # 목차
 
+- [Hash](#Hash)
 - [Tree](#Tree)
 - [Heap](#Heap)
 
+## Hash
+
+- 개념
+  - Hashing : 임의의 길이의 값을 해시함수를 사용하여 고정된 크기의 값으로 변환하는 작업
+  - Hash Table : 해시함수를 사용하여 변환한 값을 Index으로 삼아 Key와 Value를 저장하는 자료구조
+
+- Hash Function
+  - ① Division Method : 테이블 크기로 나머지 연산 ((Key % 소수) % 테이블 크기)
+  - ② Digit Folding : Key가 String일때, 모든 ASCII 코드를 더한 값을 Index으로 사용
+  - ③ Universal Hashing : p(f(x) == f(y)) == 1/m가 되는 hash 함수 (c/m이 되면, C-universal Hashing)
+ 
+- Collision
+  - 개념 : 해시 함수가 서로 다른 두 개의 입력값에 대해 동일한 출력값을 내는 상황
+
+- Collision resolution method
+  - ① Open Addressing : Collision시, 다른 주소도 이용할 수 있는 기법
+    - ⓐ Linear Probing : 한 칸씩 이동하며 빈 칸을 찾음 (클러스터링 문제가 일어남)
+    - ⓑ Quadratic Probing : n^2칸씩 이동하며 빈 칸을 찾음 (Linear보다는 낫지만, 클러스터링 문제가 일어남)
+    - ⓒ Double Probing : 두가지 해시 함수를 사용하며, 첫 번째 해시 함수는 Index를 찾고, 두 번째 해시 함수는 이동폭 계산
+  - ② Chaining : Collision시, 연결리스트 형태로 저장하는 방법(Bucket)
+
+- 시간복잡도
+  - Insert, Search, Delete : O(1) (다만, Load Factor(K/N, 적재량)이 50% 이하이고, C-Universal Hashing 함수를 사용할 경우)
+ 
 ## Tree
 
 - 개념
